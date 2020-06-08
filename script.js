@@ -1,7 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var clearBtn = document.querySelector("#clear");
+var passwordText = document.querySelector("#password");
 
-//Array for each character type
+//String for each character type
 var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
 
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -13,13 +15,13 @@ var special = "~!@#$%^&*()_+".split("");
 //Array to hold selected character types
 var masterArray = [];
 
-//string for holding generated password
+//String for holding generated password
 let newPass = "";
 
-//string for password length input
+//String for password length input
 let passwordLength = "";
 
-//the generator function!
+//Password generator
 function generatePassword() {
   //prompts the user to input password length
   var passwordLength = prompt(
@@ -63,7 +65,7 @@ function generatePassword() {
   }
 }
 
-// Write password to the #password input
+//Write password to the #password input
 function writePassword() {
   //clears any info that may exist in our array/string due to previously generated passwords
   newPass = "";
@@ -73,9 +75,14 @@ function writePassword() {
   generatePassword();
   
   //writes to text box
-  var passwordText = document.querySelector("#password");
   passwordText.value = newPass;
 }
 
-// Add event listener to generate button
+//Removes generated password
+function clearPassword() {
+  passwordText.value = "";
+}
+
+// Add event listener to generate and clear buttons
 generateBtn.addEventListener("click", writePassword);
+clearBtn.addEventListener("click", clearPassword);
