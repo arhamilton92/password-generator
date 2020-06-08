@@ -13,13 +13,13 @@ var special = ("~!@#$%^&*()_+").split("");
 
 
 //Array to hold selected character types
-var masterArray = [];
+var masterArray = []
 
-//container for empty password string. Used container so I could clear the string when generating a new pass.
-let newPass = "";
+//string for holding generated password
+let newPass = ""
 
 //string for password length input
-let passwordLength = "";
+let passwordLength = ""
 
 //the generator function! 
 function generatePassword() {
@@ -44,12 +44,14 @@ function generatePassword() {
   if (confirmUpp) {
     masterArray = masterArray.concat(upperCase);
   }
-  if (confirmSpe) {
+  if (confirmNum) {
     masterArray = masterArray.concat(integer);
   }
-  if (confirmNum) {
+  if (confirmSpe) {
     masterArray = masterArray.concat(special);
   }
+
+  console.log(masterArray);
 
   //ends function if no characters were selected
   if (!confirmLow && !confirmUpp && !confirmSpe && !confirmNum) {
@@ -65,6 +67,8 @@ function generatePassword() {
 
 // Write password to the #password input
 function writePassword() {
+  newPass = "";
+  masterArray = [];
   generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = newPass;
