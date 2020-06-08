@@ -31,12 +31,38 @@ function generatePassword() {
       return;
     }
   
+  //confirm selections
+  var confirmLow = confirm('Include lowercase letters?');
+  var confirmUpp = confirm('Include uppercase letters?');
+  var confirmNum = confirm('Include numbers?');
+  var confirmSpe = confirm('Include special characters?');
+  
+  //concatenate selections to master Array
+  if (confirmLow) {
+    masterArray = masterArray.concat(lowerCase);
+  }
+  if (confirmUpp) {
+    masterArray = masterArray.concat(upperCase);
+  }
+  if (confirmSpe) {
+    masterArray = masterArray.concat(integer);
+  }
+  if (confirmNum) {
+    masterArray = masterArray.concat(special);
+  }
+
+  //ends function if no characters were selected
+  if (!confirmLow && !confirmUpp && !confirmSpe && !confirmNum) {
+    alert("You must select at least one character type.");
+    return;
+  }
+console.log(masterArray);
+}
 
 // Write password to the #password input
 function writePassword() {
-  password = generatePassword();
+  generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = newPass;
 }
 
