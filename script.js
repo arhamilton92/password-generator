@@ -13,13 +13,13 @@ var special = ("~!@#$%^&*()_+").split("");
 
 
 //Array to hold selected character types
-var masterArray = []
+var masterArray = [];
 
-//string for generated password
-let newPass = ""
+//container for empty password string. Used container so I could clear the string when generating a new pass.
+let newPass = "";
 
 //string for password length input
-let passwordLength = ""
+let passwordLength = "";
 
 //the generator function! 
 function generatePassword() {
@@ -56,11 +56,16 @@ function generatePassword() {
     alert("You must select at least one character type.");
     return;
   }
-console.log(masterArray);
+  
+  //generates password using the master Array and paswordlength input
+  for (var i = 0; i < passwordLength; ++i) {
+    newPass += masterArray[Math.floor(Math.random() * masterArray.length)];
+  }
 }
 
 // Write password to the #password input
 function writePassword() {
+  newPass = "";
   generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = newPass;
