@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+/* main body styling */
 html,
 body,
 .wrapper {
@@ -12,15 +13,15 @@ body,
   padding: 0;
 }
 
-body {
-  font-family: sans-serif;
-  background-color: #f9fbfd;
-}
-
 .wrapper {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f9fbfd;
 }
 
 header {
@@ -30,6 +31,11 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+div {
+  text-align: center;
+}
+
+/* card styling */
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -72,6 +78,7 @@ header {
   clear: both;
 }
 
+/* buttons */
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
@@ -88,15 +95,7 @@ header {
   cursor: pointer;
 }
 
-button[disabled] {
-  cursor: default;
-  background: #c0c7cf;
-}
-
-.float-right {
-  float: right;
-}
-
+/* generated password */
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -116,19 +115,16 @@ button[disabled] {
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+  font-size: 1rem;
 }
 
+/* media queries */
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
     padding: 10px 15px;
   }
-
-  #password {
-    font-size: 1rem;
-  }
-}
 
 @media (max-width: 500px) {
   .btn {

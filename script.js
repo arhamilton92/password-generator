@@ -1,41 +1,43 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+var clearBtn = document.querySelector("#clear");
+var passwordText = document.querySelector("#password");
 
+//String for each character type
+var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
 
-//Array for each character type
-var lowerCase = ("abcdefghijklmnopqrstuvwxyz").split("");
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-var upperCase = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ").split("");
+var integer = "1234567890".split("");
 
-var integer = ("1234567890").split("");
-
-var special = ("~!@#$%^&*()_+").split("");
-
+var special = "~!@#$%^&*()_+".split("");
 
 //Array to hold selected character types
-var masterArray = []
+var masterArray = [];
 
-//string for holding generated password
-let newPass = ""
+//String for holding generated password
+let newPass = "";
 
-//string for password length input
-let passwordLength = ""
+//String for password length input
+let passwordLength = "";
 
-//the generator function! 
+//Password generator
 function generatePassword() {
   //prompts the user to input password length
-  var passwordLength = prompt("How many characters in password? Minimum 8, Maximum 128.")
+  var passwordLength = prompt(
+    "How many characters in password? Minimum 8, Maximum 128."
+  );
   //ends function if input is incorrect
-    if (isNaN(passwordLength) || passwordLength <8 || passwordLength > 128 ) {
-      alert("please select a number between 8 and 128.");
-      return;
-    }
+  if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+    alert("please select a number between 8 and 128.");
+    return;
+  }
   
   //confirm selections
-  var confirmLow = confirm('Include lowercase letters?');
-  var confirmUpp = confirm('Include uppercase letters?');
-  var confirmNum = confirm('Include numbers?');
-  var confirmSpe = confirm('Include special characters?');
+  var confirmLow = confirm("Include lowercase letters?");
+  var confirmUpp = confirm("Include uppercase letters?");
+  var confirmNum = confirm("Include numbers?");
+  var confirmSpe = confirm("Include special characters?");
   
   //concatenate selections to master Array
   if (confirmLow) {
@@ -50,9 +52,7 @@ function generatePassword() {
   if (confirmSpe) {
     masterArray = masterArray.concat(special);
   }
-
-  console.log(masterArray);
-
+  
   //ends function if no characters were selected
   if (!confirmLow && !confirmUpp && !confirmSpe && !confirmNum) {
     alert("You must select at least one character type.");
@@ -65,14 +65,24 @@ function generatePassword() {
   }
 }
 
-// Write password to the #password input
+//Write password to the #password input
 function writePassword() {
+  //clears any info that may exist in our array/string due to previously generated passwords
   newPass = "";
   masterArray = [];
+  
+  //generates password
   generatePassword();
-  var passwordText = document.querySelector("#password");
+  
+  //writes to text box
   passwordText.value = newPass;
 }
 
-// Add event listener to generate button
+//Removes generated password
+function clearPassword() {
+  passwordText.value = "";
+}
+
+// Add event listener to generate and clear buttons
 generateBtn.addEventListener("click", writePassword);
+clearBtn.addEventListener("click", clearPassword);
