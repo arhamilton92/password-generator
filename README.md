@@ -23,5 +23,6 @@ Also added a clear button to wipe the password on command. I also centered "Gene
 Hit the generate button and follow the prompts. Automatically generates a password to your specifications.
 
 ## Screenshots
-![image](https://user-images.githubusercontent.com/64741393/84091142-9a41b080-a9c1-11ea-90e9-2708496f625b.png)
+![image](https://user-images.githubusercontent.com/64741393/84091442-66b35600-a9c2-11ea-893d-b241105e2913.png)
+
 
