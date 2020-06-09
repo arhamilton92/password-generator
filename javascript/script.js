@@ -5,11 +5,8 @@ var passwordText = document.querySelector("#password");
 
 //String for each character type
 var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
-
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-
 var integer = "1234567890".split("");
-
 var special = "~!@#$%^&*()_+".split("");
 
 //Array to hold selected character types
@@ -25,7 +22,7 @@ let passwordLength = "";
 function generatePassword() {
   //prompts the user to input password length
   var passwordLength = prompt(
-    "How many characters in password? Minimum 8, Maximum 128."
+    "How many characters in password? Enter a number between 8 and 128."
   );
   //ends function if input is incorrect
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
